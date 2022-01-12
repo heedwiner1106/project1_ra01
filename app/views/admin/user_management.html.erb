@@ -1,0 +1,33 @@
+<% content_for :style do %>
+<%= stylesheet_link_tag 'usermanagement', media: 'all', 'data-turbolinks-track': 'reload' %>
+<% end %>
+<main id="mainadmin">
+        <div class="usertable">
+            <div class="title">
+                <h2>Account</h2>
+                <h2>Admin</h2>
+                <h2 class="btn">SeeDetail</h2>
+                <h2 class="btn">Update</h2>
+                <h2 class="btn">Delete</h2>
+            </div>
+            <% @accounts.each do |account| %>
+                <div class="list">
+                    <p class="account"><%= account.email %></p>
+                    <p class="role">true</p>
+                    <button class="seedetail btn"><i class="fas fa-info-circle fa-2x"></i></button>
+                    <button class="update btn"><i class="fas fa-wrench fa-2x"></i></button>
+                    <!-- <button class="delete btn"><i class="fas fa-user-slash fa-2x"></i></button> -->
+                    <%= link_to '<i class="fas fa-user-slash fa-2x"></i>'.html_safe, account, method: :delete, data: { confirm: 'Are you sure?' }, class: "delete" %>
+                    <button class="btnmobile"><i class="fas fa-chevron-down fa-2x"></i></button>
+
+                    <div class="nav-btn-mobile">
+                        <button class="seedetail "><i class="fas fa-info-circle fa-2x"></i></button>
+                        <button class="update"><i class="fas fa-wrench fa-2x"></i></button>
+                        <button class="delete"><i class="fas fa-user-slash fa-2x"></i></button>
+                    </div>
+                </div>
+            <% end %>
+            <div class="list"><%= link_to '<i class="fas fa-plus-circle fa-4x"></i>'.html_safe, '/signup'%></div>
+        </div>
+    </main>
+    <%= javascript_pack_tag 'user_management', 'data-turbolinks-track': 'reload' %>

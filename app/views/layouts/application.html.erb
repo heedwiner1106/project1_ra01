@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <%= yield :style %>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -18,9 +19,34 @@
   </head>
 
   <body>
+  <div class="body_alert">
+    <div class="alert_form">
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+      <button>OK</button>
+    </div>
+  </div>
     <%= render 'layouts/header' %>
     <%= yield %>
     <%= render 'layouts/footer' %>
+    <script>
+      $(document).ready(function(){
+        if(($('.alert').text()) == ''){
+          $('.notice').parent().hide();
+        }else{
+          $('.notice').parent().show();
+          $('.alert_form button').focus();
+        }
+        $('.alert_form button').click(function(){
+          $('.alert').text('');
+          $('.notice').parent().hide();
+        });
+        $('.alert_form button').blur(function(){
+          $('.alert').text('');
+          $('.notice').parent().hide();
+        });
+      });
+    </script>
   </body>
 
 </html>

@@ -1,0 +1,80 @@
+<% content_for :style do %>
+<%= stylesheet_link_tag 'mainadmin', media: 'all', 'data-turbolinks-track': 'reload' %>
+<% end %>
+<main id="mainadmin">
+    <div class="revenues">
+        <div class="books revenue">
+            <div class="picture"><i class="fas fa-book fa-3x"></i><i class="fas fa-book fa-2x"></i></div>
+            <div class="text">
+                <p>Book Sales</p>
+                <h2>25.6M</h2>
+                <p class="percent">25.6%</p>
+            </div>
+        </div>
+        <div class="cds revenue">
+            <div class="picture"><i class="fas fa-compact-disc fa-4x"></i><i class="fas fa-compact-disc fa-3x"></i></div>
+            <div class="text">
+                <p>CD Sales</p>
+                <h2>74.4M</h2>
+                <p class="percent">74.4%</p>
+            </div>
+        </div>
+        <div class="total revenue">
+            <div class="picture"><i class="fas fa-swatchbook fa-4x"></i><i class="fas fa-swatchbook fa-3x"></i></div>
+            <div class="text">
+                <p>ToTal</p>
+                <h2>100M</h2>
+                <p class="percent">+23%</p>
+            </div>
+        </div>
+    </div>
+    <div class="listbill">
+        <div class="title"><h2>Bills Of Month</h2></div>
+        <table>
+            <tr>
+                <th>Customer</th>
+                <th>c.ID</th>
+                <th>Sex</th>
+                <th>Date</th>
+                <th>Address</th>
+                <th>Price</th>
+                <th>Pay Method</th>
+                <th>Total</th>
+                <th>Status</th>
+            </tr>
+            <tr>
+                <td>Tran Xuan Nhi</td>
+                <td>1</td>
+                <td>Nam</td>
+                <td>11/11/2021</td>
+                <td>Da Nang</td>
+                <td>50000</td>
+                <td>Tien mat</td>
+                <td>55000</td>
+                <td>V</td>
+            </tr>
+            <tr>
+                <td>Tran Van A</td>
+                <td>2</td>
+                <td>Nu</td>
+                <td>11/11/2021</td>
+                <td>Da Nang</td>
+                <td>50000</td>
+                <td>Tien mat</td>
+                <td>55000</td>
+                <td>X</td>
+            </tr>
+            <tr>
+                <td>Tran Van B</td>
+                <td>1</td>
+                <td>Nam</td>
+                <td>11/11/2021</td>
+                <td>Da Nang</td>
+                <td>50000</td>
+                <td>Tien mat</td>
+                <td>55000</td>
+                <td>X</td>
+            </tr>
+        </table>
+    </div>
+</main>

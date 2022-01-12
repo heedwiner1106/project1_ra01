@@ -1,0 +1,75 @@
+<% content_for :style do %>
+<%= stylesheet_link_tag 'productmanagement', media: 'all', 'data-turbolinks-track': 'reload' %>
+<% end %>
+
+<main id="mainadmin">
+        <div class="container">
+            <div class="titlelist">
+                <button class="list title" id="list">Product List</button>
+                <button class="onsale title" id="onsale">Product On Sale</button>
+                <button class="btnaddproduct"><i class="fas fa-plus-circle fa-4x" id="btnadd"></i><i class="fas fa-plus-circle fa-3x" id="btnaddd"></i></button>                
+            </div>
+            <div class="productlist" id="productonsale">  
+                <div class="heading gridsale">
+                    <p>ID</p>
+                    <p>Name</p>
+                    <p>Old Price</p>
+                    <p>New Price</p>
+                    <p>Date Start Sale</p>
+                    <p>Date End Sale</p>
+                </div>  
+            </div>
+            <div class="productlist listP" id="productlist">
+                <table>
+                    <tr>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Author</th>
+                        <th>Company</th>
+                        <th>Price</th>
+                        <th>Discount</th>
+                        <th>Category</th>
+                        <th>User</th>
+                        <th>Image</th>
+                    </tr>
+                    <% @products.each do |product| %>
+                    <tr>
+                        <td><%= product.name %></td>
+                        <td><%= product.description %></td>
+                        <td><%= product.author %></td>
+                        <td><%= product.company %></td>
+                        <td><%= product.price %></td>
+                        <td><%= product.discount %></td>
+                        <td><%= @categorys.find(product.product_category_id).name %></td>
+                        <td><%= product.user_id %></td>
+                        <% if product.image != "" %> 
+                            <td><%= image_tag product.image_url %></td>
+                        <% end %>
+                    </tr>
+                    <% end %>
+                </table>
+            </div>
+            <div class="productlist addproduct" id="addproduct">    
+                <div class="heading"><p>Add Product</p></div>
+                <%= form_with( url: products_path) do |form| %>
+                    <%= form.text_field :name,placeholder: 'Name' %>
+                    <%= form.text_field :description,placeholder: 'Description' %>
+                    <%= form.text_field :author,placeholder: 'Author' %>
+                    <%= form.text_field :company,placeholder: 'Company' %>
+                    <%= form.number_field :price,placeholder: 'Price' %>
+                    <%= form.text_field :discount,placeholder: 'Discount' %>
+                    <%= form.file_field :image, placeholder: 'image' %>
+                    <%= form.number_field :product_category_id,placeholder: 'Category' %>
+                    <%= form.number_field :user_id,placeholder: 'User' %>
+                    <div class="actions">
+                        <%= form.submit 'ADD', class: "add" %>
+                    </div>                    
+                <% end  %>
+                <div class="addpicture">
+                    <img src="../picture/picture_content_battledrive.jpg">
+                    <button class="btnchoosepictrue"><b>Choose Picture</b></button>
+                </div>
+            </div>
+        </div>
+    </main>
+<%= javascript_pack_tag 'product_management' ,'data-turbolinks-track': 'reload'%>

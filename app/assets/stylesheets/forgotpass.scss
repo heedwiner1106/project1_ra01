@@ -1,0 +1,42 @@
+.forgotpass{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    h2{
+        align-content: center;
+        margin-top: 5em;
+    }
+    form{
+        justify-content: center;
+        align-items: center;
+        *{
+            margin: 1em;
+        }
+        input{
+            height: 2em;
+            border-radius: 0.5em;
+            border-color: olivedrab;
+        }
+        .actions input{
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            font-weight: bold;
+            color: #EAA451;
+            background-color: #d14444;
+            border: none;
+        }
+        .actions input:hover{
+            height: 2.5em;
+            color: #131045;
+        }
+    }
+    a{
+        font-weight: bold;
+        color: #EAA451;
+    }
+    a:hover{
+        color: #131045;
+    }
+    margin-bottom: 10em;
+}

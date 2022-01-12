@@ -9,12 +9,20 @@ class ProductsController < ApplicationController
   end
 
   def new
+    @product = Product.new
   end
 
   def edit
   end
 
   def create
+    @product = Product.new(product_params)
+
+    if @product.save
+      redirect_to management_path
+    else
+      redirect_to '/admin'
+    end
   end
 
   def update
@@ -26,5 +34,9 @@ class ProductsController < ApplicationController
   private
   def set_product
     @product = Product.find(params[:id])
+  end
+
+  def product_params
+    params.permit(:name, :image, :description, :author, :company, :price, :discount, :product_category_id, :user_id)
   end
 end
